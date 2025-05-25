@@ -38,14 +38,12 @@ jobs:
       # Authenticates Docker to GHCR using GitHub's built-in token.
       
     - name: Tag Docker image
-      run: docker tag cowsay-app:latest ghcr.io/riki-dev-1/cowsay-app:latest
-
+      run: docker tag cowsay-app:latest ghcr.io/${{ github.repository_owner }}/cowsay-app:latest
       # Tags the Docker image for GHCR. Note the format: ghcr.io/username/repository:tag
       
     - name: Push Docker image to GHCR
-      run: docker push ghcr.io/riki-dev-1/cowsay-app:latest
+      run: docker push ghcr.io/${{ github.repository_owner }}/cowsay-app:latest
       # Pushes the Docker image to GitHub Container Registry.
-
 
 
 
