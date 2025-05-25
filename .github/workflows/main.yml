@@ -44,3 +44,4 @@ jobs:
       - name: Push Docker image to GHCR
         run: docker push ghcr.io/riki-dev-1/cowsay-app:latest
         # Pushes the Docker image to GitHub Container Registry.
+        
