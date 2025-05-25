@@ -6,21 +6,18 @@ on:
       - main
 
 jobs:
-  build_application:
+  build_and_package_application:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
     steps:
     - name: Check out code 
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
       # Allow the runner to check out the source code from the repository.
-
-    - name: Run the application
-      working-directory: ./src
-      run: |        
-        npm i
-        npm start
-
-
+    
+    - name: Build Docker image
+      run: docker build -t cowsay-app:latest .
+    
+    - name: Run Docker container
+      run:  docker run -d -p 8080:8080 cowsay-app:latest
 
 
 
