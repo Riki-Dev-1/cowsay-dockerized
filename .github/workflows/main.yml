@@ -19,6 +19,12 @@ jobs:
     - name: Run Docker container
       run:  docker run -d -p 8080:8080 cowsay-app:latest
 
+    - name: Check application
+      run: sleep 5
+
+    - name: Check application
+      run: curl http://localhost:8080
+
 
 
 
